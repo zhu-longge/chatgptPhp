@@ -12,7 +12,7 @@ $OPENAI_API_KEY = "";
 //下面这段代码是从文件中获取apikey，采用轮询方式调用。配置apikey请访问key.php
 $content = "<?php header('HTTP/1.1 404 Not Found');exit; ?>\n";
 $line = 0;
-$handle = fopen(__DIR__ . "/apikey.php", "r") or die("Writing file failed.");
+$handle = fopen(__DIR__ . "/apiKeyData/_apikey.php", "r") or die("Writing file failed.");
 if ($handle) {
     while (($buffer = fgets($handle)) !== false) {
         $line++;
@@ -26,7 +26,7 @@ if ($handle) {
     fclose($handle);
 }
 $content .= $OPENAI_API_KEY . "\n";
-$handle = fopen(__DIR__ . "/apikey.php", "w") or die("Writing file failed.");
+$handle = fopen(__DIR__ . "/apiKeyData/_apikey.php", "w") or die("Writing file failed.");
 if ($handle) {
     fwrite($handle, $content);
     fclose($handle);

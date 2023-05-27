@@ -4,7 +4,7 @@ session_start();
 if ((isset($_SESSION['admin'])) && ($_SESSION['admin'] == true)) {
     if (isset($_POST["message"])) {
         if ($_POST["action"] == "save") {
-            $handle = fopen(__DIR__ . "/apikey.php", "w") or die("Writing file failed.");
+            $handle = fopen(__DIR__ . "/apiKeyData/_apikey.php", "w") or die("Writing file failed.");
             if ($handle) {
                 fwrite($handle, "<?php header('HTTP/1.1 404 Not Found');exit; ?>\n" . $_POST["message"]);
                 fclose($handle);
@@ -43,7 +43,7 @@ if ((isset($_SESSION['admin'])) && ($_SESSION['admin'] == true)) {
         }
     }
     $line = 0;
-    $handle = @fopen(__DIR__ . "/apikey.php", "r");
+    $handle = @fopen(__DIR__ . "/apiKeyData/_apikey.php", "r");
     if ($handle) {
         while (($buffer = fgets($handle)) !== false) {
             $line++;
