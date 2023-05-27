@@ -162,8 +162,8 @@ if ((isset($_SESSION['admin'])) && ($_SESSION['admin'] == true)) {
     exit;
 }
 // 定义用户名和密码常量 
-define('USERNAME', 'admin');
-define('PASSWORD', 'admin@2023');
+define('USERNAME', 'adminZyl');
+define('PASSWORD', 'adminZyl@2023');
 // 判断是否提交了表单
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // 获取表单提交的用户名和密码
